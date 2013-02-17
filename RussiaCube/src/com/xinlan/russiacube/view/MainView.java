@@ -1,5 +1,7 @@
 package com.xinlan.russiacube.view;
 
+import com.xinlan.russiacube.abstracts.Controller;
+import com.xinlan.russiacube.component.XinlanController;
 import com.xinlan.russiacube.config.Config;
 
 import android.content.Context;
@@ -13,7 +15,6 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
 /**
- * 主
  * @author Administrator
  *
  */
@@ -29,6 +30,8 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	
 	public static int GAME_STATE=1;
 
+	private Controller mController;
+	
 	public MainView(Context context) {
 		super(context);
 		this.context = context;
@@ -55,6 +58,8 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	
 	public void init() {
 		GAME_STATE=1;
+		
+		mController = new XinlanController(res);
 	}
 	
 	public void main(){
@@ -72,6 +77,8 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 			if (canvas != null) {
 				canvas.drawColor(Color.BLACK);//
 				//TODO draw something
+				
+				mController.draw(canvas);
 			}//end if
 		}catch (Exception e) {
 		} finally {
@@ -82,8 +89,9 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	}
 
 	public void logic() {
+		mController.logic();
 	}
-
+	
 	public void run() {
 		while (flag) {
 			long start = System.currentTimeMillis();
