@@ -72,5 +72,6 @@ public class XinlanController implements Controller {
 
 	@Override
 	public void logic() {
+		
 	}
 }
