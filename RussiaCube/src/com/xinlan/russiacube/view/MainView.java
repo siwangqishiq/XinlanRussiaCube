@@ -77,7 +77,6 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 			if (canvas != null) {
 				canvas.drawColor(Color.BLACK);//
 				//TODO draw something
-				
 				mController.draw(canvas);
 			}//end if
 		}catch (Exception e) {
@@ -99,15 +98,15 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 			long end = System.currentTimeMillis();
 			//System.out.println(end - start);
 			try {
-				if (end - start < 30) {
-					Thread.sleep(30- (end - start));
+				if (end - start < 20) {
+					Thread.sleep(20- (end - start));
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}// end while
 	}
-
+	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		//mController.onTouch(event);

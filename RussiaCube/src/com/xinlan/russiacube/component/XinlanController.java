@@ -26,7 +26,6 @@ public class XinlanController implements Controller {
 		cross_left = DELTA;
 		cross_top=Config.SCREEN_HEIGHT-(DELTA+cross_height);
 		mCrossBitmap = BitmapFactory.decodeResource(res, R.drawable.cross);
-		
 		srcRect = new Rect(0,0,mCrossBitmap.getWidth(),mCrossBitmap.getHeight());
 		dstRect=  new Rect(cross_left,cross_top,cross_left+cross_width , cross_top+cross_height);
 	}
