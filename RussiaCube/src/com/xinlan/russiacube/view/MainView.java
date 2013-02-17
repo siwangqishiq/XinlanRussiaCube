@@ -1,5 +1,7 @@
 package com.xinlan.russiacube.view;
 
+import com.xinlan.russiacube.config.Config;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -43,41 +45,40 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	public void surfaceCreated(SurfaceHolder holder) {
 		screenW = this.getWidth();
 		screenH = this.getHeight();
+		Config.SCREEN_HEIGHT=screenH;
+		Config.SCREEN_WIDTH=screenW;
 		init();
 		flag = true;
 		th = new Thread(this);
 		th.start();
 	}
-
-	/**
-	 * ��ʼ��
-	 */
+	
 	public void init() {
 		GAME_STATE=1;
 	}
 	
 	public void main(){
+		switch(GAME_STATE){
+		case 1:
+			drawMain();
+			logic();
+			break;
+		}
+	}
+
+	public void drawMain() {
+		canvas = sfh.lockCanvas();
 		try {
-			canvas = sfh.lockCanvas();
 			if (canvas != null) {
-				switch(GAME_STATE){
-				case 1:
-					canvas.drawColor(Color.BLACK);
-					draw();
-					logic();
-					break;
-				}
-			}// end if
-		} catch (Exception e) {
+				canvas.drawColor(Color.BLACK);//
+				//TODO draw something
+			}//end if
+		}catch (Exception e) {
 		} finally {
 			if (canvas != null) {
 				sfh.unlockCanvasAndPost(canvas);
 			}
 		}
-	}
-
-	public void draw() {
-		
 	}
 
 	public void logic() {
@@ -99,9 +100,6 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 		}// end while
 	}
 
-	/**
-	 * �������¼�
-	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		//mController.onTouch(event);
