@@ -58,7 +58,6 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	
 	public void init() {
 		GAME_STATE=1;
-		
 		mController = new XinlanController(res);
 	}
 	
@@ -77,7 +76,7 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 			if (canvas != null) {
 				canvas.drawColor(Color.BLACK);//
 				//TODO draw something
-				mController.draw(canvas);
+				//mController.draw(canvas);
 			}//end if
 		}catch (Exception e) {
 		} finally {
