@@ -10,6 +10,11 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 
+/**
+ * ä¸»
+ * @author Administrator
+ *
+ */
 public class MainView extends SurfaceView implements Callback, Runnable {
 	private SurfaceHolder sfh;
 	private Paint paint;
@@ -32,7 +37,6 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 		paint.setAntiAlias(true);
 		setFocusable(true);
 		setFocusableInTouchMode(true);
-		// ÉèÖÃ±³¾°³£ÁÁ
 		this.setKeepScreenOn(true);
 	}
 
@@ -41,14 +45,12 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 		screenH = this.getHeight();
 		init();
 		flag = true;
-		// ÊµÀýÏß³Ì
 		th = new Thread(this);
-		// Æô¶¯Ïß³Ì
 		th.start();
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½
 	 */
 	public void init() {
 		GAME_STATE=1;
@@ -98,7 +100,7 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	}
 
 	/**
-	 * ¼àÌý´¥ÆÁÊÂ¼þ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
