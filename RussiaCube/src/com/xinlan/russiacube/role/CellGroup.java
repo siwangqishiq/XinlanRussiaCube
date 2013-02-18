@@ -5,13 +5,30 @@ import java.util.LinkedList;
 import android.graphics.Canvas;
 
 public class CellGroup {
-	private LinkedList< Cell> cellGroup;
-	public CellGroup(){
-		cellGroup = new LinkedList<Cell>();
-	}
+	public static final int CELL_NUM_MAX=50;
 	
-	public void draw(Canvas canvas){
-		for(int i=0;i<cellGroup.size();i++){
-		}//end for i
+	private LinkedList<Cell> cellGroup;
+
+	public CellGroup() {
+		cellGroup = new LinkedList<Cell>();
+		genCells();
 	}
-}//end class
+
+	private void genCells() {
+		for (int i = 0; i < CELL_NUM_MAX; i++) {
+			new Cell(cellGroup);
+		}
+	}
+
+	public void draw(Canvas canvas) {
+		for (int i = 0; i < cellGroup.size(); i++) {
+			cellGroup.get(i).draw(canvas);
+		}// end for i
+	}
+
+	public void logic() {
+		for (int i = 0; i < cellGroup.size(); i++) {
+			cellGroup.get(i).logic();
+		}// end for i
+	}
+}// end class

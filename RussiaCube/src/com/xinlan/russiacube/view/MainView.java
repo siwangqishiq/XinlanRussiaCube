@@ -3,6 +3,7 @@ package com.xinlan.russiacube.view;
 import com.xinlan.russiacube.abstracts.Controller;
 import com.xinlan.russiacube.component.XinlanController;
 import com.xinlan.russiacube.config.Config;
+import com.xinlan.russiacube.role.CellGroup;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -31,6 +32,7 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	public static int GAME_STATE=1;
 
 	private Controller mController;
+	private CellGroup mCellGroup;
 	
 	public MainView(Context context) {
 		super(context);
@@ -58,7 +60,8 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	
 	public void init() {
 		GAME_STATE=1;
-		mController = new XinlanController(res);
+		//mController = new XinlanController(res);
+		mCellGroup  =new CellGroup();
 	}
 	
 	public void main(){
@@ -77,6 +80,7 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 				canvas.drawColor(Color.BLACK);//
 				//TODO draw something
 				//mController.draw(canvas);
+				mCellGroup.draw(canvas);
 			}//end if
 		}catch (Exception e) {
 		} finally {
@@ -87,7 +91,8 @@ public class MainView extends SurfaceView implements Callback, Runnable {
 	}
 
 	public void logic() {
-		mController.logic();
+		//mController.logic();
+		mCellGroup.logic();
 	}
 	
 	public void run() {
