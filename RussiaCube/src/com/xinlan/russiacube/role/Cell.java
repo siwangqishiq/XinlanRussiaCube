@@ -10,8 +10,8 @@ import android.graphics.Paint;
 
 public class Cell {
 	public static final int MAX_R = 20;
-	public static final int MIN_R = 10;
-	public static final float MAX_DR = 0.4f;
+	public static final int MIN_R = 14;
+	public static final float MAX_DR = 0.3f;
 	public static final float MIN_DR = 0.1f;
 
 	private int x, y;
@@ -61,7 +61,7 @@ public class Cell {
 		// y+=dy;
 
 		r += dr;
-		if (r >= 21 || r <= 10) {
+		if (r >= 21 || r <= 14) {
 			dr *= -1;
 		}
 
